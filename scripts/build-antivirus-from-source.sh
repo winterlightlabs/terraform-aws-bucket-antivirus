@@ -16,4 +16,3 @@ rm -rf bin/
 rm -rf build/
 
 make archive
-
