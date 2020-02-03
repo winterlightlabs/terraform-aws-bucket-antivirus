@@ -32,3 +32,9 @@ variable "antivirus-update-rate" {
   type        = string
   default     = "3 hours"
 }
+
+variable "git-revision" {
+  description = "Git revision of the lambda code to build"
+  type        = string
+  default     = "f0baa5d"
+}
