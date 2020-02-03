@@ -5,8 +5,12 @@ resource "null_resource" "build-antivirus-from-source" {
     : 0
   )
 
+  triggers = {
+    git_revision = "${var.git-revision}"
+  }
+
   provisioner "local-exec" {
-    command = "bash ${path.module}/scripts/build-antivirus-from-source.sh"
+    command = "REVISION=${var.git-revision} bash ${path.module}/scripts/build-antivirus-from-source.sh"
   }
 }
 
@@ -14,11 +18,11 @@ resource "aws_s3_bucket_object" "antivirus-code" {
   depends_on = [null_resource.build-antivirus-from-source]
 
   bucket = aws_s3_bucket.antivirus-code.bucket
-  key    = "lambda.zip"
+  key    = "lambda-${var.git-revision}.zip"
 
   source = (
     var.antivirus-lambda-code == null
-    ? "/tmp/bucket-antivirus-function/build/lambda.zip"
+    ? "~/bucket-antivirus-function/build/lambda.zip"
     : pathexpand(var.antivirus-lambda-code)
   )
 }
