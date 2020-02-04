@@ -8,6 +8,7 @@ resource "aws_iam_policy" "antivirus-scanner-policy" {
     {
       bucket-names                      = var.buckets-to-scan
       antivirus-definitions-bucket-name = aws_s3_bucket.antivirus-definitions.bucket
+      scanner-sns-topics                = var.scanner-sns-topics
     }
   )
 }

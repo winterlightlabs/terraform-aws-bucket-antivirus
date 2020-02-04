@@ -38,3 +38,10 @@ variable "git-revision" {
   type        = string
   default     = "f0baa5d"
 }
+
+variable "scanner-sns-topics" {
+  description = "List of SNS topics the scanner can publish to"
+  type        = list(string)
+  default     = []
+}
+
