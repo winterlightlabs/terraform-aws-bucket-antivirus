@@ -45,12 +45,6 @@ variable "scanner-sns-topics" {
   default     = []
 }
 
-variable "region" {
-  description = "The region where the host will be deployed."
-  type        = string
-  default     = "us-east-1"
-}
-
 variable "env" {
   description = "Instance tag to identify the instance env (i.e. 'core', 'prod')."
   type        = string
