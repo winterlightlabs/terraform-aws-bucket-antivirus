@@ -38,3 +38,15 @@ variable "git-revision" {
   type        = string
   default     = "f0baa5d"
 }
+
+variable "scanner-sns-topics" {
+  description = "List of SNS topics the scanner can publish to"
+  type        = list(string)
+  default     = []
+}
+
+variable "env" {
+  description = "Instance tag to identify the instance env (i.e. 'core', 'prod')."
+  type        = string
+  default     = "develop"
+}

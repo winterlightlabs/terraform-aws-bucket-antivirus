@@ -1,5 +1,5 @@
 resource "aws_lambda_function" "antivirus-scanner" {
-  function_name = "bucket-antivirus-scanner"
+  function_name = "${var.env}-bucket-antivirus-scanner"
   timeout       = 300
   memory_size   = 1024
   runtime       = "python3.7"
