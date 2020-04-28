@@ -37,12 +37,4 @@ resource "aws_s3_bucket_policy" "public-antivirus-definitions" {
     "${path.module}/policies/bucket-antivirus-definitions.json.tmpl",
     { bucket-name = aws_s3_bucket.antivirus-definitions.bucket }
   )
-
-  server_side_encryption_configuration {
-    rule {
-      apply_server_side_encryption_by_default {
-        sse_algorithm = "AES256"
-      }
-    }
-  }
 }
