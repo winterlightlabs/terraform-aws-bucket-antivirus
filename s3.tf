@@ -1,11 +1,27 @@
 resource "aws_s3_bucket" "antivirus-definitions" {
   bucket_prefix = "bucket-antivirus-definitions"
   force_destroy = true
+
+  server_side_encryption_configuration {
+    rule {
+      apply_server_side_encryption_by_default {
+        sse_algorithm = "AES256"
+      }
+    }
+  }
 }
 
 resource "aws_s3_bucket" "antivirus-code" {
   bucket_prefix = "antivirus-code"
   force_destroy = true
+
+  server_side_encryption_configuration {
+    rule {
+      apply_server_side_encryption_by_default {
+        sse_algorithm = "AES256"
+      }
+    }
+  }
 }
 
 resource "aws_s3_bucket_policy" "public-antivirus-definitions" {
@@ -21,4 +37,12 @@ resource "aws_s3_bucket_policy" "public-antivirus-definitions" {
     "${path.module}/policies/bucket-antivirus-definitions.json.tmpl",
     { bucket-name = aws_s3_bucket.antivirus-definitions.bucket }
   )
+
+  server_side_encryption_configuration {
+    rule {
+      apply_server_side_encryption_by_default {
+        sse_algorithm = "AES256"
+      }
+    }
+  }
 }
