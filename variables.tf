@@ -50,3 +50,9 @@ variable "env" {
   type        = string
   default     = "develop"
 }
+
+variable "ephemeral_storage" {
+  description = "The amount of ephemeral storage under /tmp in MB"
+  type        = number
+  default     = 512
+}
