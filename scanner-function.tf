@@ -9,6 +9,10 @@ resource "aws_lambda_function" "antivirus-scanner" {
   s3_bucket = aws_s3_bucket.antivirus-code.bucket
   s3_key    = aws_s3_bucket_object.antivirus-code.key
 
+  ephemeral_storage {
+    size = var.ephemeral_storage
+  }
+
   environment {
     variables = merge(
       {
