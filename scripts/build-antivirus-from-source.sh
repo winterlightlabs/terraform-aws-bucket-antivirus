@@ -5,7 +5,7 @@ GIT_DIR=~/bucket-antivirus-function
 
 rm -rf $GIT_DIR
 
-git clone https://github.com/upsidetravel/bucket-antivirus-function.git $GIT_DIR
+git clone https://github.com/winterlightlabs/bucket-antivirus-function.git $GIT_DIR
 
 cd $GIT_DIR
 git checkout $REVISION
