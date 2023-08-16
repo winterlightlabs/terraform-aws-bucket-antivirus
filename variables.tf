@@ -36,7 +36,7 @@ variable "antivirus-update-rate" {
 variable "git-revision" {
   description = "Git revision of the lambda code to build"
   type        = string
-  default     = "7e14840"
+  default     = "f1c7dca"
 }
 
 variable "scanner-sns-topics" {
