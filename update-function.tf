@@ -2,7 +2,7 @@ resource "aws_lambda_function" "antivirus-update" {
   function_name = "${var.env}-bucket-antivirus-update"
   timeout       = 300
   memory_size   = 4096
-  runtime       = "python3.7"
+  runtime       = "python3.10"
   handler       = "update.lambda_handler"
   role          = aws_iam_role.antivirus-update-role.arn
 
