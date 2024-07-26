@@ -36,7 +36,7 @@ variable "antivirus-update-rate" {
 variable "git-revision" {
   description = "Git revision of the lambda code to build"
   type        = string
-  default     = "f1c7dca"
+  default     = "8d9439c"
 }
 
 variable "scanner-sns-topics" {
@@ -55,4 +55,10 @@ variable "ephemeral_storage" {
   description = "The amount of ephemeral storage under /tmp in MB"
   type        = number
   default     = 512
+}
+
+variable "lambda_runtime" {
+  description = "The lambda runtime to deploy with"
+  type        = string
+  default     = "python3.12"
 }
